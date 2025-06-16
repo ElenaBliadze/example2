@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>All Posts</h1>
+        <a href="{{ url_for('create') }}" class="btn">Create New Post</a>
+        <ul class="post-list">
+            {% for post in posts %}
+                <li class="post-item">
+                    <h2>{{ post['title'] }}</h2>
+                    <p>{{ post['content'] }}</p>
+                </li>
+            {% else %}
+                <li>No posts yet!</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
